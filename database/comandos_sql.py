@@ -21,7 +21,7 @@ import  sqlite3  as sql;
 
 #   Rotina utilizada para dar begin, execute e commit em uma consulta SQL
 def ExecutaSQL(__sql, insert=None):
-    with sql.connect('database.db') as __conn:
+    with sql.connect('database\\database.db') as __conn:
         __cur = __conn.cursor();
         __cur.execute('begin');
         if insert == None:
@@ -80,7 +80,7 @@ def LeLogin(login="", senha=""):
         SELECT * FROM logins WHERE login = '{login}' and senha = '{senha}'
         """;
 
-    with sql.connect('database.db') as __conn:
+    with sql.connect('database\\database.db') as __conn:
         __cur = __conn.cursor();
 
     return __cur.execute(__sql).fetchall();
